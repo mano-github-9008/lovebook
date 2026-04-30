@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description"
+    content="Book of Her — an interactive love and memories scrapbook with anti-gravity floating elements." />
+  <title>Book of Her — Love &amp; Memories</title>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STYLESHEETS
+       To change colour palette, open css/style.css and edit
+       the :root custom-property tokens at the top.
+  ════════════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/book.css" />
+</head>
+
+<body>
+
+  <!-- ── Zero-gravity void: particle canvas (z-index 0) ── -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- ── Main scene ─────────────────────────────────────── -->
+  <div id="scene">
+    <!-- Book stage: sized by JS based on viewport -->
+    <div id="book-stage">
+      <!-- StPageFlip mounts inside this element -->
+      <div id="book-container"></div>
+    </div>
+  </div>
+
+
+  <!-- ── Navigation buttons ─────────────────────────────── -->
+  <button id="btn-prev" class="nav-btn" aria-label="Previous page">&#8249;</button>
+  <button id="btn-next" class="nav-btn" aria-label="Next page">&#8250;</button>
+
+  <!-- ── Hint text ──────────────────────────────────────── -->
+  <p id="hint" id="hint-desktop">drag the page edge &middot; or use the arrows</p>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LIBRARIES (CDN)
+       StPageFlip — 3D page-flip engine
+         Docs: https://github.com/Nodlik/StPageFlip
+       ─────────────────────────────────────────────────────
+       To swap library versions, change the @X.X.X:
+         https://unpkg.com/page-flip@VERSION/dist/js/page-flip.browser.js
+  ════════════════════════════════════════════════════════ -->
+  <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PROJECT SCRIPTS (order matters)
+       1. particles.js   — background void hearts
+       2. book.js        — book init & page content
+  ════════════════════════════════════════════════════════ -->
+  <script src="js/particles.js"></script>
+  <script src="js/book.js"></script>
+
+</body>
+
+</html>
