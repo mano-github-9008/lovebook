@@ -22,20 +22,9 @@
       side: 'front',
       html: `
         <div class="page page-cover" style="padding:0;overflow:hidden;position:relative;">
-          <h1 style="color:white;">Read Fully !</h1>
-          <div style="
-            position:absolute;bottom:0;left:0;right:0;
-            background:linear-gradient(transparent, rgba(20,5,40,0.72));
-            padding:22px 20px 16px;
-            text-align:center;
-          ">
-            <div style="
-              font-family:'Dancing Script',cursive;
-              font-size:clamp(0.75rem,2vw,0.95rem);
-              color:rgba(240,210,255,0.82);
-              letter-spacing:0.12em;
-            "></div>
-          </div>
+          <div class="cover-ornament">✦</div>
+          <div class="cover-title" style="font-size:clamp(1rem,3vw,1.6rem)">Read fully only if you trust me !</div>
+          <div class="cover-divider"></div>
         </div>`
     },
 
@@ -49,23 +38,20 @@
 Yeh dekhte hi agar aapko irritation ya gussa aaya toh please I'am sorry… isse ignore kar dho.
 Agar aisa nahi hai tabhi please isse padho. <br><br>
 
-Iss message ko dekh ke aap yeh soch sakte ho ki me yeh sab kyun likh raha hu…
+Iss message ko dekh ke aap yeh soch sakte ho ki me yeh sab kyu likh raha hu…
 Lekin yeh koi timepass message nahi hai.
 Na hi yeh aapka dil badalne ke liye likha gaya message hai.
 Aur na hi yeh message isliye hai ki aap mujhe accept kar lo. <br><br>
 
-Sach bolu toh mujhe khud nahi pata ki mujhmein woh haq hai bhi ya nahi…
-Bas kuch baatein hain jo main chahta hoon ki aap samjhein. <br><br>
+Sach bolu toh mujhe khud nahi pata ki mujhme woh haq hai bhi ya nahi… aapse woh sab puchne,
+Bs kuch baate hai jo me chahta hu ki aap samjhe. <br><br>
 
-Bappa ko ya kisi aur ko beech me laaye bina… sirf apne dil aur aapse jo pyaar hai uss par yakeen rakh kar yeh sab likh raha hu…
+Bappa ko ya kisi aur ko beech me laaye bina… sirf apne dil aur aapse jo pyaar hai uss par yakeen rakh kr yeh sab likh raha hu…
 
 <br><br>
 
 Jaise aap khud ko sochte ho waise aap bilkul bhi buri ladki nahi ho.
-Aapne mujhe hurt kiya, mujhe takleef di aisa sab soch kar please khud ko neeche mat dikhao.
-
-
-
+Aapne mujhe hurt kiya, mujhe takleef di aisa sab soch rahe ho pr please aisa sochke khud ko neeche mat dikhao.
           </p>
         </div>`
     },
@@ -98,35 +84,36 @@ jithna dhin aapke saath tha woh sabh ko leke hi bol raha hu… aap jaisi achhi l
           Yeh sab main sirf aapko achha feel karwane ke liye naahi aapkeliye bol raha. trust me, me jhut nahi bol raha hu… yeh sach hai, aur iss sach ka sabse bada proof yeh hai ki aaj bhi main aapse utna hi pyaar karta hu jaise ishke phele kartha tha. 
 <br><br>
 
+Aap bole the na ki aapse abhi kuch bhi karne nhi horaha kuch leke baite toh bhi woh karne mann nahi karta hai… aisa kyu horaha hai mujhe exactly nhi patah lekin, agar aapko bhi mere jaise ek dhusre se baat kare bina rhene nhi horaha hai toh please kuch socho math… me kidhar nahi jaa raha hu. naahi me aapko chod ke kabhi jaunga.
+<br><br>
 Aur agar aapko lagta hai ki mujhe kiss kiye mujhe trust kiye abhi 
 kya karungi insecure feel horaha hai toh uska jawab sirf itna hi 
 hai jis din maine aapko kiss kiya tha, ussi din maine dil se 
 decide kar liya tha ki iss janam mein aapke alawa kisi aur ladki 
-ko kabhi touch bhi nahi karunga, aur aaj bhi wahi keh raha hoon… 
+ko kabhi touch bhi nahi karunga, aur aaj bhi wahi keh raha hu 
 me aapko kabhi chod kar nahi jaunga. Yeh mera love ke uper promise 
 hai, aap mujhe poori tarah bharosa kar sakte ho… me aapko kabhi 
 dhoka nahi dunga. <br><br>
-
-Abhi ke liye please sab baath scohna chodo aage kya hoga aage dhekthe hai… sirf apne career par focus karo, jyadha socho mat, aap akele nahi ho… me hamesha aapke saath hu, sirf aapke liye.. <br><br>
-          </p>
+</p>
         </div>`
     },{
       html: `
         <div class="page --right page-inner">
           <p class="page-body">
+          Abhi ke liye please sab baath scohna chodo aage kya hoga aage dhekthe hai… sirf apne career par focus karo, jyadha socho mat, aap akele nahi ho… me hamesha aapke saath hu, sirf aapke liye.. <br><br>
+          
           Yeh sab bolne se kya mera dil badal jayega puche toh sach bolu toh mujhe nahi pata. ye sab ushkeliye hai bhi nhi,
 yeh sab bolne ka koi khaas reason bhi nahi hai. bs ishliye ki aap samjhe ki aap sochne jaise aap nhi ho..
 <br><br>
 
 Haa itne din mujhe bahut hurt hua tha, yeh sach hai.
 lekin ab utna dard nhi hota… kyuki ab tak mujhe lagta tha ki maine aapko kho diya hai.
-Par ab bas yeh soch kar khush hoon ki aap memories ke form me mere saath ho.
+Par ab bas yeh soch kar khush hu ki aap memories ke form me mere saath ho.
 <br><br>
 
 abhi mere liye bas itna important hai ki ek din aapko successful aur khush dekhun.
 uske liye mujhe jo bhi karna padega, me sab karne ke liye tayar hu.
-<br><br>
-
+<br>
 Chahe aap mujhse kitni bhi nafrat karo, main hamesha aapke liye rahunga.
 aapne mujh par itna bharosa kiya tha… bas iss ek baar aur mujh par trust karo.
 Main aapko kabhi dhoka nahi dunga. <br><br>
@@ -141,12 +128,14 @@ Aur agar aapko yeh theek na lage, toh koi baat nahi, chod doh.
 12 baje tak dekhe ke… phir me khud samajh jaunga ki aapko yeh sab pasand nahi hai abh. <br><br>
 
 Aur mujhe koi ego nahi hai, puttu.
-me aapko message kar sakta hoon ya nahi mujhe khud samajh nahi aa raha tha… isliye nahi kiya. <br><br>
+me aapko message kar sakta hu ya nahi mujhe khud samajh nahi aa raha tha… isliye nahi kiya. <br><br>
 
 aur jo status lagata hu woh sirf apne dil ko thoda sambhalne ke liye lagata hu.
 aap usse kyn like karte ho ye mujhe nahi pata… lekin sirf tabhi karo jab aapko sach me woh pasand ho.
-agar aapko lagta hai ki nhi karne se mujhe hurt hoga toh please mat sochke karo… dekho bhi mat. 
+agar aapko lagta hai ki nhi karne se mujhe hurt hoga toh please aisa sochke math like karo… dekho bhi mat. 
 me kuch nahi sochunga. 🫂 ! <br><br>
+
+aap soch sakthe ho ki mujhe hopes nhi dhena hai pr me toh aapko dhek ke hi khush hu uthne me hi love krthe rahunga
 
 Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
 
@@ -160,10 +149,9 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
       html: `
         <div class="page page-cover cover-back">
           <div class="cover-ornament">✦</div>
-          <div class="cover-title" style="font-size:clamp(1rem,3vw,1.6rem)">ishme jo bhi bola sab sirf sach hai !!</div>
+          <div class="cover-title" style="font-size:clamp(1rem,3vw,1.6rem)">Hope you read it fully !</div>
           <div class="cover-divider"></div>
-          <div class="cover-subtitle" style="color:black;">Miss you achu !!</div>
-          <div class="cover-ornament" style="font-size:0.7rem;margin-top:20px;opacity:0.4;color:black;letter-spacing:0.3em">Love you puttu !!</div>
+          <div class="cover-subtitle" style="color:black;">Thank you !!</div>
         </div>`
     },
   ];
