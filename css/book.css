@@ -50,10 +50,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #d4a8f5;
+    color: #ffffff;
     text-align: center;
     padding: 40px 30px;
     overflow: hidden;
+    font-family: cursive;
 }
 
 .page-cover::before {
@@ -87,7 +88,7 @@
     font-size: clamp(1.5rem, 4.5vw, 2.8rem);
     font-style: italic;
     font-weight: 700;
-    color: #f0d0ff;
+    color: #000000;
     line-height: 1.2;
     margin-bottom: 8px;
     text-shadow: 0 2px 16px rgba(181, 123, 238, 0.55);
