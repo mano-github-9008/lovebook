@@ -494,3 +494,259 @@ body {
   background: rgba(232, 93, 138, 0.28);
   color: #fff;
 }
+
+/* ── Admin panel: header actions row ─────────────────────── */
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-refresh {
+  background: none;
+  border: none;
+  color: rgba(212, 168, 245, 0.5);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 2px 5px;
+  line-height: 1;
+  transition: color 0.2s, transform 0.3s;
+}
+
+.admin-refresh:hover {
+  color: #b57bee;
+  transform: rotate(90deg);
+}
+
+/* ── Admin panel: section labels ─────────────────────────── */
+.admin-section-label {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(181, 123, 238, 0.55);
+  border-bottom: 1px solid rgba(181, 123, 238, 0.15);
+  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ── Live badge next to "Live Readers" label ─────────────── */
+.admin-live-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 99px;
+  background: rgba(181, 123, 238, 0.22);
+  color: #d4a8f5;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+/* ── Sessions list container ─────────────────────────────── */
+.admin-sessions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.admin-sessions-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.admin-sessions-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.admin-sessions-list::-webkit-scrollbar-thumb {
+  background: rgba(181, 123, 238, 0.3);
+  border-radius: 99px;
+}
+
+.admin-sessions-empty {
+  font-size: 0.72rem;
+  color: rgba(200, 168, 220, 0.45);
+  text-align: center;
+  padding: 10px 0;
+  letter-spacing: 0.06em;
+}
+
+/* ── Session row ─────────────────────────────────────────── */
+.session-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(181, 123, 238, 0.06);
+  border: 1px solid rgba(181, 123, 238, 0.1);
+  transition: background 0.2s;
+}
+
+.session-row:hover {
+  background: rgba(181, 123, 238, 0.13);
+}
+
+/* Highlight the admin's own session */
+.session-row--me {
+  border-color: rgba(181, 123, 238, 0.4);
+  background: rgba(181, 123, 238, 0.14);
+}
+
+.session-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.session-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.session-id {
+  font-size: 0.62rem;
+  color: rgba(212, 168, 245, 0.65);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.session-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.session-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(181, 123, 238, 0.12);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.session-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #b57bee, #e85d8a);
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.session-pct {
+  font-size: 0.62rem;
+  color: rgba(181, 123, 238, 0.7);
+  min-width: 28px;
+  text-align: right;
+}
+
+.session-time {
+  font-size: 0.6rem;
+  color: rgba(200, 168, 220, 0.45);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Taller panel to fit the new sections ────────────────── */
+#admin-panel {
+  bottom: -600px;
+  /* tall enough for connection bar + sessions list */
+}
+
+/* ── Connection status bar ───────────────────────────────── */
+.admin-conn-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(181, 123, 238, 0.12);
+  margin-bottom: 4px;
+}
+
+/* Pulsing status dot */
+.conn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(181, 123, 238, 0.3);
+  transition: background 0.3s;
+}
+
+.conn-dot--idle {
+  background: rgba(181, 123, 238, 0.3);
+}
+
+.conn-dot--testing {
+  background: #e0b840;
+  animation: connPulse 0.8s ease-in-out infinite;
+}
+
+.conn-dot--ok {
+  background: #4cc98a;
+}
+
+.conn-dot--error {
+  background: #e85d8a;
+}
+
+@keyframes connPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.conn-label {
+  flex: 1;
+  font-size: 0.64rem;
+  color: rgba(200, 168, 220, 0.7);
+  letter-spacing: 0.04em;
+  word-break: break-word;
+}
+
+.conn-test-btn {
+  flex-shrink: 0;
+  background: rgba(181, 123, 238, 0.15);
+  border: 1px solid rgba(181, 123, 238, 0.3);
+  border-radius: 6px;
+  color: rgba(212, 168, 245, 0.85);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.conn-test-btn:hover {
+  background: rgba(181, 123, 238, 0.35);
+  color: #fff;
+}
+
+/* Error text in sessions list */
+.admin-sessions-error {
+  color: rgba(232, 93, 138, 0.75) !important;
+  font-size: 0.68rem !important;
+  line-height: 1.5;
+}

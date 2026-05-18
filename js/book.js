@@ -96,7 +96,7 @@ hai, aap mujhe poori tarah bharosa kar sakte ho… me aapko kabhi
 dhoka nahi dunga. <br><br>
 </p>
         </div>`
-    },{
+    }, {
       html: `
         <div class="page --right page-inner">
           <p class="page-body">
@@ -119,20 +119,20 @@ aapne mujh par itna bharosa kiya tha… bas iss ek baar aur mujh par trust karo.
 Main aapko kabhi dhoka nahi dunga. <br><br>
           </p>
         </div>`
-    },{
+    }, {
       html: `
         <div class="page --left page-inner">
           <p class="page-body">
           Agar aapko mujh par bharosa hai, toh bas apne about me wapis “Ganpati Bappa Morya 🌺” rakho… mere liye woh kaafi hai.
 Aur agar aapko yeh theek na lage, toh koi baat nahi, chod doh.
-12 baje tak dekhe ke… phir me khud samajh jaunga ki aapko yeh sab pasand nahi hai abh. <br><br>
+rath ke 12 baje tak dekhe ke… phir me khud samajh jaunga ki aapko yeh sab pasand nahi hai abh. <br><br>
 
 Aur mujhe koi ego nahi hai, puttu.
 me aapko message kar sakta hu ya nahi mujhe khud samajh nahi aa raha tha… isliye nahi kiya. <br><br>
 
 aur jo status lagata hu woh sirf apne dil ko thoda sambhalne ke liye lagata hu.
 aap usse kyn like karte ho ye mujhe nahi pata… lekin sirf tabhi karo jab aapko sach me woh pasand ho.
-agar aapko lagta hai ki nhi karne se mujhe hurt hoga toh please aisa sochke math like karo… dekho bhi mat. 
+agar aapko lagta hai ki nhi karne se mujhe hurt hoga toh please aisa sochke math like karo… nhi pasandh toh dekho bhi mat. 
 me kuch nahi sochunga. 🫂 ! <br><br>
 
 aap soch sakthe ho ki mujhe hopes nhi dhena hai pr me toh aapko dhek ke hi khush hu uthne me hi love krthe rahunga
@@ -262,6 +262,8 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
     pageFlip.on('flip', (e) => {
       saveProgress(e.data);
       updateAdminPanel();
+      /* Remote anonymous tracking — no personal data */
+      if (window.BOH_TRACKER) window.BOH_TRACKER.track(e.data);
     });
 
     /* Update nav button state */
@@ -275,6 +277,9 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
         stats.sessions = (stats.sessions || 0) + 1;
         localStorage.setItem(ADMIN_KEY, JSON.stringify(stats));
       } catch (_) { }
+
+      /* Record the first page-view remotely */
+      if (window.BOH_TRACKER) window.BOH_TRACKER.track(resumePage || 0);
 
       /* Show resume toast if user was mid-read */
       if (resumePage > 0) showResumeBadge(resumePage);
@@ -343,9 +348,22 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
     panel.innerHTML = `
       <div class="admin-header">
         <span class="admin-title">👁 Reading Stats</span>
-        <button class="admin-close" id="admin-close-btn" aria-label="Close admin panel">✕</button>
+        <div class="admin-header-actions">
+          <button class="admin-refresh" id="admin-refresh-btn" title="Refresh live readers">↻</button>
+          <button class="admin-close" id="admin-close-btn" aria-label="Close admin panel">✕</button>
+        </div>
       </div>
       <div class="admin-body" id="admin-body">
+
+        <!-- Connection status bar -->
+        <div class="admin-conn-bar" id="admin-conn-bar">
+          <span class="conn-dot" id="conn-dot"></span>
+          <span class="conn-label" id="conn-label">Not tested</span>
+          <button class="conn-test-btn" id="conn-test-btn">Test Connection</button>
+        </div>
+
+        <!-- Local device stats -->
+        <div class="admin-section-label">This Device</div>
         <div class="admin-stat">
           <span class="stat-label">Pages Read</span>
           <span class="stat-value" id="admin-pages"></span>
@@ -366,7 +384,14 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
           <div class="admin-progress-bar"><div id="admin-progress-fill"></div></div>
           <span id="admin-progress-pct">0%</span>
         </div>
-        <button class="admin-reset" id="admin-reset-btn">Reset Progress</button>
+
+        <!-- Live anonymous readers (remote) -->
+        <div class="admin-section-label" style="margin-top:6px">Live Readers <span id="admin-live-count" class="admin-live-badge">…</span></div>
+        <div id="admin-sessions-list" class="admin-sessions-list">
+          <div class="admin-sessions-empty">Click ↻ to load</div>
+        </div>
+
+        <button class="admin-reset" id="admin-reset-btn">Reset My Progress</button>
       </div>
     `;
     document.body.appendChild(panel);
@@ -374,6 +399,14 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
     document.getElementById('admin-close-btn').addEventListener('click', () => {
       panel.classList.remove('open');
       panel.setAttribute('aria-hidden', 'true');
+    });
+
+    document.getElementById('admin-refresh-btn').addEventListener('click', () => {
+      refreshLiveSessions();
+    });
+
+    document.getElementById('conn-test-btn').addEventListener('click', () => {
+      runConnectionTest();
     });
 
     document.getElementById('admin-reset-btn').addEventListener('click', () => {
@@ -405,6 +438,99 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
     el('admin-progress-pct').textContent = pct + '%';
   }
 
+  /* ── Live remote sessions ─────────────────────────────── */
+  function timeAgo(isoStr) {
+    if (!isoStr) return '—';
+    const diff = Math.floor((Date.now() - new Date(isoStr)) / 1000);
+    if (diff < 60) return diff + 's ago';
+    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    return Math.floor(diff / 86400) + 'd ago';
+  }
+
+  function renderSessions(sessions) {
+    const list = document.getElementById('admin-sessions-list');
+    const badge = document.getElementById('admin-live-count');
+    if (!list) return;
+
+    // Sort newest-last-seen first
+    const sorted = [...sessions].sort((a, b) =>
+      new Date(b.lastSeen) - new Date(a.lastSeen)
+    );
+
+    badge.textContent = sessions.length;
+
+    if (sorted.length === 0) {
+      list.innerHTML = '<div class="admin-sessions-empty">No readers yet</div>';
+      return;
+    }
+
+    const myId = window.BOH_TRACKER ? window.BOH_TRACKER.SESSION_ID : null;
+    list.innerHTML = sorted.map(s => {
+      const isMe = s.id === myId;
+      const pct = Math.round(((s.page + 1) / PAGE_DATA.length) * 100);
+      const icon = s.device === 'mobile' ? '📱' : '🖥️';
+      return `
+        <div class="session-row${isMe ? ' session-row--me' : ''}">
+          <span class="session-icon">${icon}</span>
+          <div class="session-info">
+            <div class="session-id">${isMe ? '(you) ' : ''}#${s.id.slice(-6)}</div>
+            <div class="session-bar-wrap">
+              <div class="session-bar"><div class="session-bar-fill" style="width:${pct}%"></div></div>
+              <span class="session-pct">${pct}%</span>
+            </div>
+          </div>
+          <span class="session-time">${timeAgo(s.lastSeen)}</span>
+        </div>`;
+    }).join('');
+  }
+
+  /* ── Connection test ────────────────────────────────── */
+  function setConnStatus(state, text) {
+    const dot = document.getElementById('conn-dot');
+    const label = document.getElementById('conn-label');
+    if (!dot || !label) return;
+    dot.className = 'conn-dot conn-dot--' + state;   // idle | ok | error | testing
+    label.textContent = text;
+  }
+
+  function runConnectionTest() {
+    if (!window.BOH_TRACKER) { setConnStatus('error', 'Tracker script missing'); return; }
+    if (!window.BOH_TRACKER.isConfigured()) {
+      setConnStatus('error', 'Fill in BIN_ID & API_KEY in tracker.js');
+      return;
+    }
+    setConnStatus('testing', 'Testing…');
+    window.BOH_TRACKER.testConnection().then(result => {
+      if (result.ok) {
+        setConnStatus('ok', `Connected ✓  (${result.count} reader${result.count !== 1 ? 's' : ''} in bin)`);
+        refreshLiveSessions();
+      } else {
+        setConnStatus('error', result.error || 'Unknown error');
+      }
+    });
+  }
+
+  function refreshLiveSessions() {
+    const list = document.getElementById('admin-sessions-list');
+    if (!window.BOH_TRACKER) {
+      if (list) list.innerHTML = '<div class="admin-sessions-empty admin-sessions-error">tracker.js not loaded</div>';
+      return;
+    }
+    if (!window.BOH_TRACKER.isConfigured()) {
+      if (list) list.innerHTML = '<div class="admin-sessions-empty admin-sessions-error">Set BIN_ID &amp; API_KEY in tracker.js,<br>then click “Test Connection”</div>';
+      const badge = document.getElementById('admin-live-count');
+      if (badge) badge.textContent = '?';
+      return;
+    }
+    if (list) list.innerHTML = '<div class="admin-sessions-empty">Refreshing…</div>';
+    window.BOH_TRACKER.fetchSessions()
+      .then(renderSessions)
+      .catch(err => {
+        if (list) list.innerHTML = `<div class="admin-sessions-empty admin-sessions-error">${err.message || 'Could not load'}</div>`;
+      });
+  }
+
   function buildAdminTrigger() {
     const btn = document.createElement('button');
     btn.id = 'admin-trigger';
@@ -416,7 +542,10 @@ Aapke life me koi nhi hu abhi toh bhi at least aapka well wisher rehtha hu !!
       const panel = document.getElementById('admin-panel');
       const open = panel.classList.toggle('open');
       panel.setAttribute('aria-hidden', String(!open));
-      if (open) updateAdminPanel();
+      if (open) {
+        updateAdminPanel();
+        refreshLiveSessions();
+      }
     });
   }
 
