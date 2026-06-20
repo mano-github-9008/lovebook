@@ -134,22 +134,6 @@
         el.id = 'boh-player';
         el.setAttribute('aria-label', 'Music player');
         el.innerHTML = `
-      <div id="boh-player-inner">
-        <button id="boh-play-btn" aria-label="Play / Pause" title="Play / Pause">
-          <span id="boh-play-icon">▶</span>
-        </button>
-        <div id="boh-track-info">
-          <div id="boh-track-title">♪ No song set for this page</div>
-          <div id="boh-track-artist"></div>
-        </div>
-        <div id="boh-vol-wrap" title="Volume">
-          <span id="boh-vol-icon">🔊</span>
-          <input id="boh-vol-slider" type="range" min="0" max="1" step="0.02"
-                 value="${DEFAULT_VOLUME}" aria-label="Volume">
-        </div>
-        <button id="boh-player-toggle" aria-label="Minimise player" title="Minimise">−</button>
-      </div>
-      <button id="boh-player-pill" aria-label="Show music player" title="Show player">♪</button>
     `;
         document.body.appendChild(el);
 
