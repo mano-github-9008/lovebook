@@ -1,0 +1,353 @@
+/* ============================================================
+   book.css — Book, pages, cover, polaroid & content styles
+   ============================================================
+   Palette: warm sunset from Cover.png
+   - Cover: deep wine spine, sunset sky gradient (amber→rose)
+   - Pages: aged cream / warm linen
+   ============================================================ */
+
+:root {
+    --cover-hue: #3a1020;
+    --paper-tint: #fdf5e8;
+    --spine-width: 14px;
+}
+
+/* ── Outer book shell ────────────────────────────────────── */
+#book-container {
+    position: relative;
+    border-radius: 4px 12px 12px 4px;
+}
+
+/* ── Page base — warm linen paper ───────────────────────── */
+.page {
+    width: 100%;
+    height: 100%;
+    background: #fdf5e8;
+    position: relative;
+    overflow: hidden;
+    background-image:
+        radial-gradient(ellipse at 10% 15%, rgba(212, 132, 58, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 85% 80%, rgba(196, 69, 110, 0.05) 0%, transparent 55%),
+        linear-gradient(135deg, #fdf5e8 0%, #f5e0c8 50%, #fbeedd 100%);
+    box-shadow: inset -3px 0 8px rgba(0, 0, 0, 0.08), inset 3px 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.page.--left {
+    border-right: 1px solid rgba(180, 110, 60, 0.20);
+    box-shadow: inset -8px 0 18px rgba(0, 0, 0, 0.10);
+}
+
+.page.--right {
+    border-left: 1px solid rgba(180, 110, 60, 0.20);
+    box-shadow: inset 8px 0 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Cover — sunset sky gradient ────────────────────────── */
+.page-cover {
+    background:
+        radial-gradient(ellipse at 30% 40%, rgba(230, 150, 80, 0.70) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 70%, rgba(196, 69, 110, 0.60) 0%, transparent 50%),
+        linear-gradient(160deg, #c46040 0%, #8b2040 40%, #3a1020 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    font-family: cursive;
+    padding: 0px;
+}
+
+.page-cover::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(240, 176, 96, 0.35);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.page-cover::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(240, 176, 96, 0.18);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.cover-ornament {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #f0b060;
+    margin-bottom: 12px;
+    letter-spacing: 0.3em;
+    opacity: 0.85;
+}
+
+.cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4.5vw, 2.8rem);
+    font-style: italic;
+    font-weight: 700;
+    color: #fff8f0;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 16px rgba(140, 40, 60, 0.65);
+}
+
+.cover-subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+    color: rgba(240, 176, 96, 0.80);
+    margin-top: 6px;
+}
+
+.cover-divider {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #f0b060, transparent);
+    margin: 18px auto;
+}
+
+.cover-back {
+    background:
+        radial-gradient(ellipse at 30% 40%, rgba(230, 150, 80, 0.70) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 70%, rgba(196, 69, 110, 0.60) 0%, transparent 50%),
+        linear-gradient(160deg, #c46040 0%, #8b2040 40%, #3a1020 100%);
+}
+
+/* ── Inner page padding wrapper ──────────────────────────── */
+.page-inner {
+    padding: clamp(20px, 4vw, 36px) clamp(16px, 3.5vw, 32px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    overflow: hidden;
+}
+
+/* ── Chapter header ──────────────────────────────────────── */
+.chapter-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #9a5a30;
+    margin-bottom: 2px;
+}
+
+.chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.8vw, 1.5rem);
+    font-style: italic;
+    color: #4a1e28;
+    line-height: 1.2;
+    border-bottom: 1px solid rgba(196, 96, 64, 0.35);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+/* ── Decorative rule ─────────────────────────────────────── */
+.deco-rule {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #c4603e;
+    font-size: 0.75rem;
+    opacity: 0.75;
+    margin: 2px 0;
+}
+
+.deco-rule::before,
+.deco-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c4603e, transparent);
+}
+
+/* ── Body paragraph ──────────────────────────────────────── */
+.page-body {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(0.72rem, 1.6vw, 0.88rem);
+    font-weight: 300;
+    color: #2a1018;
+    line-height: 1.75;
+    flex: 1;
+}
+
+.center-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #4a1e28;
+    line-height: 1.2;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.center-title .page-body {
+    font-size: clamp(1rem, 2.8vw, 1.5rem);
+    font-weight: bolder;
+    font-family: 'Dancing Script', cursive;
+    color: #732b3c;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.2;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-bottom: 1px solid rgba(196, 96, 64, 0.35);
+    border-top: 1px solid rgba(196, 96, 64, 0.35);
+    border-radius: 10px;
+    background-color: rgba(240, 176, 96, 0.20);
+
+}
+
+/* ── Hand-written letter block ───────────────────────────── */
+.letter-block {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    color: #3a1820;
+    line-height: 1.8;
+    background: rgba(240, 176, 96, 0.20);
+    border-left: 3px solid #c4603e;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    position: relative;
+}
+
+.letter-block::before {
+    content: '"';
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    font-size: 2.5rem;
+    color: #c4603e;
+    opacity: 0.35;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+/* ── Polaroid photo frame ────────────────────────────────── */
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 8px 0;
+}
+
+.polaroid {
+    background: #fffef8;
+    padding: 8px 8px 28px;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.18),
+        0 6px 20px rgba(0, 0, 0, 0.10),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 2px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.polaroid:nth-child(odd) {
+    transform: rotate(-3.2deg);
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(2.8deg);
+}
+
+.polaroid:nth-child(3n) {
+    transform: rotate(-1.5deg);
+}
+
+.polaroid-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1px;
+    display: block;
+}
+
+.polaroid-img-placeholder img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1px;
+    display: block;
+}
+
+.polaroid-caption {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(0.55rem, 1.3vw, 0.75rem);
+    color: #7a3828;
+}
+
+/* ── Floating quote chip (in-page) ──────────────────────── */
+.quote-chip {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(0.72rem, 1.8vw, 0.95rem);
+    color: #c4603e;
+    text-align: center;
+    padding: 10px 18px;
+    border-top: 1px solid rgba(196, 96, 62, 0.30);
+    border-bottom: 1px solid rgba(196, 96, 62, 0.30);
+    margin: 4px auto;
+}
+
+/* ── Page number ─────────────────────────────────────────── */
+.page-number {
+    position: absolute;
+    bottom: 14px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: #c4603e;
+    opacity: 0.55;
+}
+
+.page-number.left {
+    left: 28px;
+}
+
+.page-number.right {
+    right: 28px;
+}
+
+/* ── Decorative pressed flower image ─────────────────────── */
+.pressed-flower {
+    position: absolute;
+    bottom: 30px;
+    right: 16px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    opacity: 0.25;
+    pointer-events: none;
+    transform: rotate(18deg);
+}
+
+/* ── Washi tape decoration ───────────────────────────────── */
+.washi-tape {
+    display: inline-block;
+    background: rgba(212, 132, 58, 0.22);
+    padding: 3px 18px;
+    transform: rotate(-1.5deg);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8b2040;
+    margin-bottom: 6px;
+}
