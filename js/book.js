@@ -343,14 +343,14 @@ Mera dil sirf aap tak aakar ruk gaya..<br><br>
           
           Mene aapko pehli baar college ke 2nd year, 4th semester me dekha tha. 
           Open hairs, forehead pe chota sa kumkum, pink color ka top... 
-          pata nahi kyu, lekiyan woh scene aaj bhi bilkul waise ka waisa yaad hai mujhe. ☺️
+          pata nahi kyu, lekin woh scene aaj bhi bilkul waise ka waisa yaad hai mujhe. ☺️
           Apni baat bhi koi special tarike se start nahi hua tha, bilkul normal si hi tha. 
-          Lekiyan uss normal si baat me ek cheez tha jo mere liye bahut alag tha. 
-          Pehli baar kiyasi ne mujhse genuinely pucha tha, "Akela rehta h, kaise handle karta h sab?" 
-          Shayadh aap bas casually puch rahe the, lekiyan mujhe laga kiya koi sach me jaan'na chahta hai kiya andar kya chal raha hai.
-          Humari baat bas do teen sentences tak hi hua tha. Lekiyan jab baat baat me aapne bola kiya aapko bhi dad nahi hain, tab mene ek step back le liya. 
+          lekin uss normal si baat me ek cheez tha jo mere liye bahut alag tha. 
+          Pehli baar kisi ne mujhse genuinely pucha tha, "Akela rehta h, kaise handle karta h sab?" 
+          Shayadh aap bas casually puch rahe the, lekin mujhe laga ki koi sach me jaan'na chahta hai ki andar kya chal raha hai.
+          Humari baat bas do teen sentences tak hi hua tha. lekin jab baat baat me aapne bola ki aapko bhi dad nahi hain, tab mene ek step back le liya. 
           Baat ko aage badhaya nahi. Koi galat intention nahi tha, aur na hi kabhi tha just mujhe bhi aapke bhareme janna tha. 
-          Par mujhe pata hai kiya dad nahi hone wale ghar me ladkiyayon ko kiyatni cheezein jhelni padti hain, kiyatni responsibilities, kiyatni baatein aur kiyatne logon ke sawaal. <br><br>
+          Par mujhe pata hai ki dad nahi hone wale ghar me ladkiyon ko kithni cheezein jhelni padti hain, kithni responsibilities, kithni baatein aur kitne logon ke sawaal. <br><br>
 
           </p>
         </div>`
@@ -358,15 +358,15 @@ Mera dil sirf aap tak aakar ruk gaya..<br><br>
       html: `
         <div class="page --right page-inner">
           <p class="page-body">
-           Aur aap hamesha itne shaant rehte the kiya mujhe lagta tha uss shaanti ke peeche bhi koi reason zaroor hoga.
-          Meri curiosity kiya wajah se ya meri wajah se koi aapke baare me kuch galat bolna nhi chaiye, Isliye mene khud hi distance bana liya. <br><br>
+           Aur aap hamesha itne shaant rehte the ki mujhe lagta tha uss shaanti ke peeche bhi koi reason zaroor hoga.
+          Meri curiosity ki wajah se ya meri wajah se koi aapke baare me kuch galat bolna nhi chaiye, Isliye mene khud hi distance bana liya. <br><br>
           
           Phir 2-3 din baad wapis baat hua. 17 December 2024. Dzenith ki wajah se.practical reh gaya tha aur mujhe files chahiye tha. 
-          Pehle Teams me message kiyaya, mujhe laga aap shayadh yaad nahi rakhenge ya dekh nahi payenge. Jab reply nahi aaya toh unofficial group se aapka number lekar message kar diya. 
-          Practical files keliye mene aapko 3-4 baar pareshan kiyaya hoga. Lekiyan har baar aap bina kiyasi irritation ke files bhej dete the. Kabhi mana nahi kiyaya. 
-          Kabhi ye feel nahi karwaya kiya baar baar disturb kar raha hu. Aapke liye woh shayadh ek normal help tha, lekiyan mere liye woh yaad rehne wali baat ban gayi.
+          Pehle Teams me message kiya, mujhe laga aap shayadh yaad nahi rakhenge ya dekh nahi payenge. Jab reply nahi aaya toh unofficial group se aapka number lekar message kar diya. 
+          Practical files keliye mene aapko 3-4 baar pareshan kiya hoga. lekin har baar aap bina kisi irritation ke files bhej dete the. Kabhi mana nahi kiya. 
+          Kabhi ye feel nahi karwaya ki baar baar disturb kar raha hu. Aapke liye woh shayadh ek normal help tha, lekin mere liye woh yaad rehne wali baat ban gayi.
           Phir Dzenith ke beech kabhi kabhi achanak mil jana. Kabhi corridor me, kabhi event ke beech, kabhi class ke aas paas. Aur baat bhi bas utni hi hoti tha jitni zaroori ho "Hi ka hi, bye ka bye."
-          Lekiyan ajeeb baat ye tha kiya jitni kam baat hoti tha, utna hi zyada aap yaad rehte the.
+          lekin ajeeb baat ye tha kiya jitni kam baat hoti tha, utna hi zyada aap yaad rehte the.
 
           </p>
            <div class="deco-rule">❤︎</div>
@@ -746,7 +746,7 @@ jaanne ke baad bas ek hi cheez feel hui... Jitni conversations badhti gayi... Ut
       <div class="polaroid-grid">
             <div class="polaroid">
               <div class="polaroid-img-placeholder"><img src="../images/first_pic.jpg" alt="first_pic"></div>
-              <div class="polaroid-caption">first meet</div>
+              <div class="polaroid-caption">first Pic</div>
             </div>
       </div>
       </p><br><br>
@@ -1972,10 +1972,13 @@ Adhu nee maatra.<br>
 <div class="polaroid">
   <div class="polaroid-img-placeholder"><img src="images/simple_life.png" alt=""></div>
 </div>
+ <div class="polaroid" style="background:none;box-shadow:none">
+              
+              <div class="page-body">Mujhe aise hi pyaar karna atha hai achu..</div>
+            </div>
 
 
           </div>
-
         </div>`
     },
     {
@@ -2021,7 +2024,10 @@ Ek choti si tasalli ki zaroorat hoti hai ki jis insaan ko usne apni duniya bana 
 Woh usse chod kar nahi jayegi
 
 Kyuki har pyaar karne wale ladke ke andar ek darr chupa hota hai...
-Ki kahin uski bandhi usse door na ho jaaye.
+Ki kahin uski bandhi usse door na ho jaaye. <br><br>
+
+pr jo bhi woh reassurance puchtha hai jo bhi woh kartha hai sirf kuch dhin thak hi, 
+fir dheere dheere ushko ushke partner pr strong opinion aagaya toh fir woh kabhi aisa behave karenge nhi
           </p>
         </div>`
     },{
@@ -2086,35 +2092,34 @@ Main aaj bhi aapse pyaar karta hoon... aur shayad hamesha karta rahunga.<br><br>
     <div class="cover-ornament">✦</div>
 
     <div class="cover-title" style="font-size:clamp(1rem,3vw,1.6rem)">
-        The Chapter of Mano and Achu
+        The Chapter of <br> Mano & Manisha
     </div>
 
     <div class="cover-divider"></div>
 
-    <div class="cover-subtitle" style="color:black;">
-        Some stories are not meant to last forever,<br>
-        but they remain in the heart forever...
+    <div class="cover-subtitle" style="color:black;font-family:'Times New Roman', serif">
+        Came to an end 🥀
     </div>
 
-    <div class="cover-ornament"
-         style="font-size:0.8rem;margin-top:20px;opacity:0.6;color:black;">
-        May be this is the End... 🥀
-    </div>
+    
 
     <div style="margin-top:25px;
                 color:black;
                 font-size:0.85rem;
                 opacity:0.7;
-                font-style:italic;">
+                font-family:'Dancing Script', cursive;">
         "I may not be a part of your future,<br>
-        but you will always be one of the most beautiful
+        but you will always be one of the most <br>beautiful
         chapters of my life." <br>
         -Sweeto
-    </div>
+    </div><br>
 
-    <div class="cover-ornament"
-         style="font-size:0.7rem;margin-top:25px;opacity:0.5;color:black;letter-spacing:0.2em">
-        Will miss you, Puttu... !
+    <div style="margin-top:25px;
+                color:black;
+                font-size:1.5rem;
+                opacity:0.7;
+                font-family:'Dancing Script', cursive;">
+        Will miss you more <strong>Puttu...</strong>
     </div>
 </div>`
     },{

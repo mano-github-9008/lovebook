@@ -119,18 +119,18 @@
 
 /* ── Inner page padding wrapper ──────────────────────────── */
 .page-inner {
-    padding: clamp(20px, 4vw, 36px) clamp(16px, 3.5vw, 32px);
+    padding: clamp(14px, 2.5vw, 26px) clamp(14px, 2.8vw, 26px);
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 10px;
     overflow: hidden;
 }
 
 /* ── Chapter header ──────────────────────────────────────── */
 .chapter-label {
     font-family: 'Lato', sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     font-weight: 300;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -171,10 +171,10 @@
 /* ── Body paragraph ──────────────────────────────────────── */
 .page-body {
     font-family: 'Lato', sans-serif;
-    font-size: clamp(0.72rem, 1.6vw, 0.88rem);
+    font-size: clamp(0.58rem, 1.15vw, 0.75rem);
     font-weight: 300;
     color: #2a1018;
-    line-height: 1.75;
+    line-height: 1.55;
     flex: 1;
 }
 
@@ -212,12 +212,12 @@
 /* ── Hand-written letter block ───────────────────────────── */
 .letter-block {
     font-family: 'Dancing Script', cursive;
-    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
     color: #3a1820;
-    line-height: 1.8;
+    line-height: 1.6;
     background: rgba(240, 176, 96, 0.20);
     border-left: 3px solid #c4603e;
-    padding: 12px 16px;
+    padding: 10px 14px;
     border-radius: 0 6px 6px 0;
     position: relative;
 }
@@ -298,10 +298,10 @@
 .quote-chip {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: clamp(0.72rem, 1.8vw, 0.95rem);
+    font-size: clamp(0.65rem, 1.5vw, 0.85rem);
     color: #c4603e;
     text-align: center;
-    padding: 10px 18px;
+    padding: 8px 14px;
     border-top: 1px solid rgba(196, 96, 62, 0.30);
     border-bottom: 1px solid rgba(196, 96, 62, 0.30);
     margin: 4px auto;
